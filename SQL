@@ -1,0 +1,36 @@
+DROP DATABASE IF EXISTS bamazon_db;
+CREATE DATABASE bamazon_db;
+USE bamazon_db;
+
+CREATE TABLE products(
+  id INTEGER(11) AUTO_INCREMENT NOT NULL,
+  product_name VARCHAR(100) NULL,
+  department_name VARCHAR(100) NULL,
+  price DECIMAL(10,4) NULL,
+  stock_quantity INT NOT NULL,
+  PRIMARY KEY (id)
+);
+SELECT * FROM products;
+INSERT INTO products (product_name, department_name, price, stock_quantity) 
+values ('Brazil Soccer Team Jersey', 'clothing', '100.00', 10);
+INSERT INTO products (product_name, department_name, price, stock_quantity) 
+values ('Argentina Soccer Team Jersey', 'clothing', '80.00', 9);
+INSERT INTO products (product_name, department_name, price, stock_quantity) 
+values ('Mexico Soccer Team Jersey', 'clothing', '75.00', 10);
+INSERT INTO products (product_name, department_name, price, stock_quantity) 
+values ('Peru Soccer Team Jersey', 'clothing', '60.00', 5);
+INSERT INTO products (product_name, department_name, price, stock_quantity) 
+values ('Germany Soccer Team Jersey', 'clothing', '100.00', 8);
+INSERT INTO products (product_name, department_name, price, stock_quantity) 
+values ('Egypt Soccer Team Jersey', 'clothing', '90.00', 5);
+INSERT INTO products (product_name, department_name, price, stock_quantity) 
+values ('Uruguay Soccer Team Jersey', 'clothing', '85.00', 6);
+INSERT INTO products (product_name, department_name, price, stock_quantity) 
+values ('Spain Soccer Team Jersey', 'clothing', '75.00', 8);
+INSERT INTO products (product_name, department_name, price, stock_quantity) 
+values ('France Soccer Team Jersey', 'clothing', '100.00', 2);
+INSERT INTO products (product_name, department_name, price, stock_quantity) 
+values ('Costa Rica Soccer Team Jersey', 'clothing', '90.00', 7);
+
+
+);
