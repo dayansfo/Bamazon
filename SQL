@@ -3,14 +3,14 @@ CREATE DATABASE bamazon_db;
 USE bamazon_db;
 
 CREATE TABLE products(
-  id INTEGER(11) AUTO_INCREMENT NOT NULL,
+  item_id INTEGER(11) AUTO_INCREMENT NOT NULL,
   product_name VARCHAR(100) NULL,
   department_name VARCHAR(100) NULL,
   price DECIMAL(10,4) NULL,
   stock_quantity INT NOT NULL,
-  PRIMARY KEY (id)
+  PRIMARY KEY (item_id)
 );
-SELECT * FROM products;
+
 INSERT INTO products (product_name, department_name, price, stock_quantity) 
 values ('Brazil Soccer Team Jersey', 'clothing', '100.00', 10);
 INSERT INTO products (product_name, department_name, price, stock_quantity) 
@@ -32,5 +32,5 @@ values ('France Soccer Team Jersey', 'clothing', '100.00', 2);
 INSERT INTO products (product_name, department_name, price, stock_quantity) 
 values ('Costa Rica Soccer Team Jersey', 'clothing', '90.00', 7);
 
-
+SELECT * FROM products;
 );
