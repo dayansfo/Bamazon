@@ -22,10 +22,9 @@ function start() {
     if (error) throw error;
   
     for (var i = 0; i < response.length; i++) {
-    console.log("----------");
     console.log("ID: " + response[i].item_id);
     console.log("Product: " + response[i].product_name);
-    console.log("Price: " + response[i].price);
+    console.log("Price: $" + response[i].price);
     console.log("----------");
   
     }
@@ -55,24 +54,19 @@ function start() {
 
       for (var i = 0; i < response.length; i++) {
           if (response[i].item_id === parseInt(answer.id))
-              stock(parseInt(answer.id), answer.units);
+              stock(parseInt(answer.id), answer.units,response[i].stock_quantity );
       }
   });
 });
 }
   
-function stock(itemID, units) {
-    connection.query("SELECT * FROM products WHERE ?", {
-        item_id: itemID
-    }, function(error, response) {
-        if (error) throw error;
-
-        if (response[0].stock_quantity <= 0) {
+function stock(itemID, units, stock_quantity) {
+        if (units > stock_quantity) {
             console.log("Insufficient quantity!");
             restart();
         } else
             updateQuantity(itemID, units);
-    });
+            console.log("Thank you for your order")
 }
   
 function cost(itemID, units) {
@@ -89,24 +83,9 @@ function cost(itemID, units) {
 }
 
 function updateQuantity(itemID, units) {
-    connection.query("SELECT * FROM products WHERE ?", {
-        item_id: itemID
-    }, function(error, response) {
-        if (error) throw error;
-
-        var newQuantity = response[0].stock_quantity - units;
-
-        if (newQuantity < 0)
-            newQuantity = 0;
-
-        connection.query("UPDATE products SET ? WHERE ?", [{
-            stock_quantity: newQuantity
-        }, {
-            item_id: itemID
-        }], function(error, response) {});
+        connection.query("UPDATE products SET stock_quantity = stock_quantity - ? WHERE item_id= ?", [units, itemID], function(error, response) {if (error) throw error;});
 
         cost(itemID, units);
-    });
 }
 
 function restart() {
@@ -126,4 +105,5 @@ function restart() {
 }
   
   start();
+  
   
