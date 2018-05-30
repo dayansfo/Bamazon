@@ -5,12 +5,12 @@ Is an online store app similar to Amazon. Customers can view and purchase the pr
 
 If a requested product does not have the requisite inventory, they will be notified of how many units are in stock, and given the option to continue the purchasing process for a different amount of units.
 
-##Technology
--Node
--cli-table
--clear
--inquirer
--mysql
+## Technology
+- Node
+- cli-table
+- clear
+- inquirer
+- mysql
 
 ## Screenshots
 ![sql](https://github.com/dayansfo/Bamazon/blob/master/bamazon%20sql%20image.png?raw=true)
